@@ -9,7 +9,7 @@
 </head>
 <body>
 
-	<div class="parent" id="app" v-if="date">
+	<div class="parent" id="app" v-if="weather" v-if="date">
 
 	<!-- Weather UI HTML -->
 	<div class="weather-widget">
@@ -19,9 +19,11 @@
 	    <i id="sun" class="wi wi-day-sunny hide"></i>
 		<i id="cloud" class="wi wi-cloudy hide"></i>
 		<i id="rain" class="wi wi-rain hide"></i>
+		<img  v-bind:src="iconsRef[0]" alt="" class="main">
 	  </div>
 	  <h1 id="temp" class="temp-c row">32C</h1>
-	  <h5 id="condition" class="condition row">Sunny</h5>
+	  <h6 id="dayOneCon" class="row">{{weather.data.daily[0].weather[0].description}}</h6>
+	  <h5 id="condition" class="condition row"></h5>
 	  <h3 id="city" class="location-name row">Wellington</h3>
 	  <h5 id="country" class="location-country row">New Zealand</h5>
 	</div>
@@ -29,78 +31,85 @@
 
 	  <div class="forecast-item">
 	    <div class="day">
-	      <h4 id="dayOneDay">Tomorrow</h4>
+	      <h4 id="dayOneDay">{{getDayOfTheWeek(1)}}</h4>
 	      <h6 id="dayOneDate">{{dates[1]}}</h6>
 	    </div>
 	    <div class="forecast">
-	      <i class="icon" id="icon1"></i><p id="dayOneTemp"> 28C</p>
-	      <h6 id="dayOneCon">Partly Cloudy</h6>
+	      <!-- <i class="icon" id="icon1"></i><p id="dayOneTemp"> 28C</p> -->
+		  <img  v-bind:src="iconsRef[1]" alt="">
+	      <h6 id="dayOneCon">{{weather.data.daily[1].weather[0].description}}</h6>
 	    </div>
 	  </div>
 
 	  <div class="forecast-item">
 	    <div class="day">
-	      <h4 id="dayTwoDay">Monday</h4>
+	      <h4 id="dayTwoDay">{{getDayOfTheWeek(2)}}</h4>
 	      <h6 id="dayTwoDate">{{dates[2]}}</h6>
 	    </div>
 	    <div class="forecast">
-			<i class="icon" id="icon2"></i><p id="dayTwoTemp"> 28C</p>
-  	      <h6 id="dayTwoCon">Partly Cloudy</h6>
+			<!-- <i class="icon" id="icon2"></i><p id="dayTwoTemp"> 28C</p> -->
+			<img  v-bind:src="iconsRef[2]" alt="">
+  	      <h6 id="dayTwoCon">{{weather.data.daily[2].weather[0].description}}</h6>
 	    </div>
 	  </div>
 
 	  <div class="forecast-item">
 	    <div class="day">
-	      <h4 id="dayThreeDay">Tuesday</h4>
+	      <h4 id="dayThreeDay">{{getDayOfTheWeek(3)}}</h4>
 	      <h6 id="dayThreeDate">{{dates[3]}}</h6>
 	    </div>
 	    <div class="forecast">
-			<i class="icon" id="icon3"></i><p id="dayThreeTemp"> 28C</p>
-   		 <h6 id="dayThreeCon">Partly Cloudy</h6>
+			<!-- <i class="icon" id="icon3"></i><p id="dayThreeTemp"> 28C</p> -->
+			<img  v-bind:src="iconsRef[3]" alt="">
+   		 <h6 id="dayThreeCon">{{weather.data.daily[3].weather[0].description}}</h6>
 	    </div>
 	  </div>
 
 	  <div class="forecast-item">
 	    <div class="day">
-	      <h4 id="dayFourDay">Wednesday</h4>
+	      <h4 id="dayFourDay">{{getDayOfTheWeek(4)}}</h4>
 	      <h6 id="dayFourDate">{{dates[4]}}</h6>
 	    </div>
 	    <div class="forecast">
-			<i class="icon" id="icon4"></i><p id="dayFourTemp"> 28C</p>
-   		 <h6 id="dayFourCon">Partly Cloudy</h6>
+			<!-- <i class="icon" id="icon4"></i><p id="dayFourTemp"> 28C</p> -->
+			<img  v-bind:src="iconsRef[4]" alt="">
+   		 <h6 id="dayFourCon">{{weather.data.daily[4].weather[0].description}}</h6>
 	    </div>
 	  </div>
 
 	  <div class="forecast-item">
 	    <div class="day">
-	      <h4 id="dayFiveDay">Thursday</h4>
+	      <h4 id="dayFiveDay">{{getDayOfTheWeek(5)}}</h4>
 	      <h6 id="dayFiveDate">{{dates[5]}}</h6>
 	    </div>
 	    <div class="forecast">
-			<i class="icon" id="icon5"></i><p id="dayFiveTemp"> 28C</p>
-  	      <h6 id="dayFiveCon">Partly Cloudy</h6>
+			<!-- <i class="icon" id="icon5"></i><p id="dayFiveTemp"> 28C</p> -->
+			<img  v-bind:src="iconsRef[5]" alt="">
+  	      <h6 id="dayFiveCon">{{weather.data.daily[5].weather[0].description}}</h6>
 	    </div>
 	  </div>
 
 	  <div class="forecast-item">
 	    <div class="day">
-	      <h4 id="daySixDay">Friday</h4>
+	      <h4 id="daySixDay">{{getDayOfTheWeek(6)}}</h4>
 	      <h6 id="daySixDate">{{dates[6]}}</h6>
 	    </div>
 	    <div class="forecast">
-			<i class="icon" id="icon6"></i><p id="daySixTemp"> 28C</p>
-   		 <h6 id="daySixCon">Partly Cloudy</h6>
+			<!-- <i class="icon" id="icon6"></i><p id="daySixTemp"> 28C</p> -->
+			<img  v-bind:src="iconsRef[6]" alt="">
+   		 <h6 id="daySixCon">{{weather.data.daily[6].weather[0].description}}</h6>
 	    </div>
 	  </div>
 
 	  <div class="forecast-item">
 	    <div class="day">
-	      <h4 id="daySevenDay">Saturday</h4>
+	      <h4 id="daySevenDay">{{getDayOfTheWeek(7)}}</h4>
 	      <h6 id="daySevenDate">{{dates[7]}}</h6>
 	    </div>
 	    <div class="forecast">
-			<i class="icon" id="icon7"></i><p id="daySevenTemp"> 28C</p>
-   		 <h6 id="daySevenCon">Partly Cloudy</h6>
+			<!-- <i class="icon" id="icon7"></i><p id="daySevenTemp"> 28C</p> -->
+			<img  v-bind:src="iconsRef[7]" alt="">
+   		 <h6 id="daySevenCon">{{weather.data.daily[7].weather[0].description}}</h6>
 	    </div>
 	  </div>
 
