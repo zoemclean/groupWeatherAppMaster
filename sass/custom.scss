@@ -7,11 +7,7 @@ h1 {
 }
 
 img {
-	max-width: 80%;
-	max-height: 800px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+	width: 50px;
 }
 
 .btn {
@@ -24,6 +20,13 @@ img {
 
 .hide {
 	display: none;
+}
+
+.parent {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: start;
 }
 
 // Weather sass
@@ -41,6 +44,7 @@ body {
   background-color: #efefef;
   font-family: "Montserrat", sans-serif;
 }
+
 .row {
   text-align: center;
   margin-bottom: 5px;
@@ -62,12 +66,20 @@ body {
   // animation: rotation 5s infinite linear;
 }
 
+.mainIcon img {
+	width: 100px;
+}
+
 .icon {
-	
+	font-size: 1em;
 }
 
 .temp-c {
   margin-bottom: 20px;
+}
+
+.paddingRight {
+	padding-right: 10px;
 }
 
 .location-country {
@@ -76,6 +88,8 @@ body {
 }
 .weather-forecast {
   width: 75%;
+  overflow: scroll;
+  padding: 10px;
 }
 .forecast-item {
   display: flex;
@@ -87,7 +101,7 @@ body {
 
 .forecast-item:hover {
   background-color: #fff;
-  cursor: pointer;
+  // cursor: pointer;
 }
 .forecast-item h6 {
   color: #888;

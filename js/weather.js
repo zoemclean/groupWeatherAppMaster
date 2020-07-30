@@ -8,7 +8,8 @@
 			  weather: false,
 			  date: ['Jul 27', 'Jul 28', 'Jul 29', 'Jul 30', 'Jul 31', 'Aug 1', 'Aug 2', 'Aug 3'],
 			  daysOfTheWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday'],
-			  dates:''
+			  dates:'',
+              icons: false
 		  },
 		  created: function () {
 			this.createDates();
@@ -36,28 +37,28 @@
 	function makeApiCallWeatherData () {
 
         function getTemp(response) {
-            document.getElementById('temp').innerHTML = response.data.daily[0].temp.day.toFixed(0) + 'C';
+            document.getElementById('temp').innerHTML = response.data.daily[0].temp.day.toFixed(0) + '°C';
             console.log(response.data.daily[0].temp.day);
 
-            document.getElementById('dayOneTemp').innerHTML = response.data.daily[1].temp.day.toFixed(0) + 'C';
+            document.getElementById('dayOneTemp').innerHTML = response.data.daily[1].temp.day.toFixed(0) + '°C';
             console.log(response.data.daily[1].temp.day);
 
-            document.getElementById('dayTwoTemp').innerHTML = response.data.daily[2].temp.day.toFixed(0) + 'C';
+            document.getElementById('dayTwoTemp').innerHTML = response.data.daily[2].temp.day.toFixed(0) + '°C';
             console.log(response.data.daily[2].temp.day);
 
-            document.getElementById('dayThreeTemp').innerHTML = response.data.daily[3].temp.day.toFixed(0) + 'C';
+            document.getElementById('dayThreeTemp').innerHTML = response.data.daily[3].temp.day.toFixed(0) + '°C';
             console.log(response.data.daily[3].temp.day);
 
-            document.getElementById('dayFourTemp').innerHTML = response.data.daily[4].temp.day.toFixed(0) + 'C';
+            document.getElementById('dayFourTemp').innerHTML = response.data.daily[4].temp.day.toFixed(0) + '°C';
             console.log(response.data.daily[4].temp.day);
 
-            document.getElementById('dayFiveTemp').innerHTML = response.data.daily[5].temp.day.toFixed(0) + 'C';
+            document.getElementById('dayFiveTemp').innerHTML = response.data.daily[5].temp.day.toFixed(0) + '°C';
             console.log(response.data.daily[5].temp.day);
 
-            document.getElementById('daySixTemp').innerHTML = response.data.daily[6].temp.day.toFixed(0) + 'C';
+            document.getElementById('daySixTemp').innerHTML = response.data.daily[6].temp.day.toFixed(0) + '°C';
             console.log(response.data.daily[6].temp.day);
 
-            document.getElementById('daySevenTemp').innerHTML = response.data.daily[7].temp.day.toFixed(0) + 'C';
+            document.getElementById('daySevenTemp').innerHTML = response.data.daily[7].temp.day.toFixed(0) + '°C';
             console.log(response.data.daily[7].temp.day);
         }
 
@@ -86,50 +87,6 @@
             document.getElementById('daySevenCon').innerHTML = response.data.daily[7].weather[0].description;
             console.log(response.data.daily[7].weather[0].description);
         }
-
-        // function getDate(response) {
-        //     var tomorrow = new Date(today);
-        //     var nextDate = new Date(today);
-        //     var nextDate2 = new Date(today);
-        //     var nextDate3 = new Date(today);
-        //     var nextDate4 = new Date(today);
-        //     var nextDate5 = new Date(today);
-        //     var nextDate6 = new Date(today);
-        //     var nextDate7 = new Date(today);
-        //
-        //     var options = { month: 'long', day: 'numeric' };
-        //
-        //     tomorrow.setDate(tomorrow.getDate() + 1);
-        //     nextDate.setDate(nextDate.getDate() + 2);
-        //     nextDate2.setDate(nextDate2.getDate() + 3);
-        //     nextDate3.setDate(nextDate3.getDate() + 4);
-        //     nextDate4.setDate(nextDate4.getDate() + 5);
-        //     nextDate5.setDate(nextDate5.getDate() + 6);
-        //     nextDate6.setDate(nextDate6.getDate() + 7);
-        //
-        //     document.getElementById('dayOneDate').innerHTML = tomorrow.toLocaleDateString('en-US', options);
-        //     console.log(tomorrow);
-        //
-        //     document.getElementById('dayTwoDate').innerHTML = nextDate.toLocaleDateString('en-US', options);
-        //     console.log(nextDate);
-        //
-        //     document.getElementById('dayThreeDate').innerHTML = nextDate2.toLocaleDateString('en-US', options);
-        //     console.log(nextDate2);
-        //
-        //     document.getElementById('dayFourDate').innerHTML = nextDate3.toLocaleDateString('en-US', options);
-        //     console.log(nextDate3);
-        //
-        //     document.getElementById('dayFiveDate').innerHTML = nextDate4.toLocaleDateString('en-US', options);
-        //     console.log(nextDate4);
-        //
-        //     document.getElementById('daySixDate').innerHTML = nextDate5.toLocaleDateString('en-US', options);
-        //     console.log(nextDate5);
-        //
-        //     document.getElementById('daySevenDate').innerHTML = nextDate6.toLocaleDateString('en-US', options);
-        //     console.log(nextDate6);
-        // }
-
-
 
         function getDay(response) {
             var tomorrow = new Date(today);
@@ -185,6 +142,7 @@
           }
 
         }
+
 
 
 		// GET request for remote image in node.js
