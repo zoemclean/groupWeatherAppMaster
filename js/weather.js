@@ -31,9 +31,7 @@
                  // Got an array of days which are strings
                  var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
                  // The current day reference which returns a number 0 - 6
-                 // var currentDay = date.getDay();
                  var currentDay = date.getDay();
-                 // console.log(currentDay)
 
                  // Updated algorithm for infinite loop.
                  function loop(n) {
@@ -41,7 +39,6 @@
                    for (var i=0; i<n; i++) {
                      var pointer = (i + currentDay) % days.length;
                      foundDay = days[pointer]
-                     // console.log(foundDay)
                    }
                    // returns result
                    return foundDay
@@ -53,9 +50,7 @@
 			}
 		});
 
-
 	function makeApiCallWeatherData () {
-
 //************ geo location code STARTS***********
         function makeAjaxRequest (lat, lng) {
            // getUrl will either be a **1. live geolocation based request or...
@@ -88,8 +83,6 @@
                }
                app.iconsRef = icons;
              } // getIcons ENDS
-
-
              // Call and assign Icons
              getIcons(response)
            });
@@ -110,19 +103,13 @@
              // Get longitude and latitude then pass to the makeAjaxRequest method
              var lat = position.coords.latitude;
              var lng = position.coords.longitude;
-             // console.log(position.coords.latitude)
-             // console.log(position.coords.longitude)
              // We have a function pre-written that makes an ajax request
              makeAjaxRequest(lat, lng);
            }
-
          } // checkGeoLocation ENDS
 
          checkGeoLocation();
-
-
 	} // function ENDS
 
     makeApiCallWeatherData();
-
 })(); // iffe ENDS
